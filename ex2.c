@@ -6,7 +6,7 @@ Assignment: ex2
 
 #include <stdio.h>
 
-void main() {
+int main() {
 	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
 	/* Example:
 	* n = 3:
@@ -54,4 +54,5 @@ void main() {
 	/* Example:
 	6, smile: 2, cheer: 3 : 1, Smile!, Cheer!, Smile!, 5, Festival!
 	*/
+	return 0;
 }
