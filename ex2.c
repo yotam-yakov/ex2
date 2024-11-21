@@ -1,12 +1,77 @@
 /******************
-Name:
-ID:
+Name: Yotam Yakov
+ID: 207918822
 Assignment: ex2
 *******************/
 
 #include <stdio.h>
 
 int main() {
+	int choice, exit=0;
+	do {
+		printf("Choose an option:\n\
+		1. Happy Face\n\
+		2. Balanced Number \n\
+		3. Generous Number\n\
+		4. Circle Of Joy\n\
+		5. Happy Numbers \n\
+		6. Festival Of Laughter\n\
+		7. Exit\n");
+		scanf("%d", &choice);
+		switch (choice){
+			case 1:
+			char eyes, nose, mouth;
+			int size=-1;
+
+			printf("Enter symbols for the eyes, nose, and mouth:\n");
+			scanf(" %c %c %c", &eyes, &nose, &mouth);
+			printf("\nEnter face size:\n");
+			scanf(" %d", &size);
+
+			while (size % 2 == 0 || size < 1) {
+				printf("\nThe face's size must be an odd and positive number,\n\
+				please try again:\n");
+				scanf(" %d", &size);
+			}
+
+			printf("%c", eyes);
+			for(int i = 0; i < size; i++)
+				printf(" ");
+			printf("%c\n", eyes);
+
+			for(int i = 0; i <= size; i += 2)
+				printf(" ");
+			printf("%c\n", nose);
+
+			printf("\\");
+			for(int i = 0; i < size; i++)
+				printf("%c", mouth);
+			printf("/\n");
+			break;
+			case 2:
+			(printf("2"));
+			break;
+			case 3:
+			(printf("3"));
+			break;
+			case 4:
+			(printf("4"));
+			break;
+			case 5:
+			(printf("5"));
+			break;
+			case 6:
+			(printf("6"));
+			break;
+			case 7:
+			exit = 1;
+			break;
+			default:
+			printf("This option is not available, please try again\n");
+		};
+	} while (!exit);
+	printf("Thank you for your journey through Numeria!\n");
+
 	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
 	/* Example:
 	* n = 3:
@@ -23,7 +88,7 @@ int main() {
 	Not blanced: 1552, 34
 	Please notice: the number has to be bigger than 0.
 	*/
-
+	
 	// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
 	/* Examples:
 	Abudant: 12, 20, 24
