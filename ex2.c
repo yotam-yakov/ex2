@@ -55,19 +55,16 @@ int main() {
 			// Balanced Number
 			case 2:
 			{
-				int control;
 				printf("Enter a number:\n");
 				scanf("%d", &number);
 				while(number < 1) {
 					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &number);
 				}
-				while(number > 0){
-					printf("%d\n", number);
-					control = number % 10;
-					number = number / 10;
-					printf("number: %d\ncontrol: %d\n", number, control);
-				}
+
+				int length=1;
+				for(int i=number; i > 0; i = i / 10, length++){}
+				
 			break;
 			}
 			
@@ -82,7 +79,7 @@ int main() {
 				}
 
 				int sum=0;
-				for(int i = 1; i < number ; i++) {
+				for(int i = 1; i < number; i++) {
 					if(number % i == 0) {
 						sum += i;
 					}
@@ -97,8 +94,30 @@ int main() {
 
 			// Circle Of Joy
 			case 4:
-			(printf("4"));
-			break;
+			{
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+				while(number < 1) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+
+				int prime=1;
+				for(int i=2; i < number; i++) {
+					if(number % i == 0) {
+						prime = 0;
+						break;
+					}
+				}
+
+				if(prime) {
+					printf("This number completes the circle of joy!\n");
+				} else {
+					printf("The circle remains incomplete.\n");
+				}
+				break;
+			}
+		
 			case 5:
 			(printf("5"));
 			break;
