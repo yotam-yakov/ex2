@@ -118,14 +118,52 @@ int main() {
 				break;
 			}
 		
+			// Happy Numbers
 			case 5:
-			(printf("5"));
-			break;
+			{
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+				while(number < 1) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+
+				int digit, temp;
+				printf("Between 1 and %d only these numbers bring happiness:\n", number);
+
+				for(int i = 1, sum; i <= number; i++) {
+					sum = i;
+					while(sum >= 10) {
+						temp = 0;
+						while(sum > 0) {
+						digit = sum % 10;
+						digit *= digit;
+						temp += digit;
+						sum /= 10;
+						}
+					sum = temp;
+					}
+
+					if(sum == 1 || sum == 7) {
+						printf("%d ", i);
+					}
+				}
+				printf("\n");
+				break;
+			}
+
+			// Festival Of Laughter
 			case 6:
-			(printf("6"));
-			break;
+			{
+				int smile, cheer;
+				printf("Enter a smile and cheer number\n");
+				scanf(" %d %d", &smile, &cheer);
+				printf("smile - %d, cheer - %d\n", smile, cheer);
+				break;
+			}
+
 			case 7:
-			exit = 1;
+				exit = 1;
 			break;
 			default:
 			printf("This option is not available, please try again\n");
