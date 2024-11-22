@@ -7,7 +7,7 @@ Assignment: ex2
 #include <stdio.h>
 
 int main() {
-	int choice, exit=0;
+	int choice, number, exit=0;
 	do {
 		printf("Choose an option:\n\
 		1. Happy Face\n\
@@ -19,41 +19,83 @@ int main() {
 		7. Exit\n");
 		scanf("%d", &choice);
 		switch (choice){
+			// Happy Face
 			case 1:
-			char eyes, nose, mouth;
-			int size=-1;
+			{
+				char eyes, nose, mouth;
+				int size=-1;
 
-			printf("Enter symbols for the eyes, nose, and mouth:\n");
-			scanf(" %c %c %c", &eyes, &nose, &mouth);
-			printf("\nEnter face size:\n");
-			scanf(" %d", &size);
-
-			while (size % 2 == 0 || size < 1) {
-				printf("\nThe face's size must be an odd and positive number,\n\
-				please try again:\n");
+				printf("Enter symbols for the eyes, nose, and mouth:\n");
+				scanf(" %c %c %c", &eyes, &nose, &mouth);
+				printf("\nEnter face size:\n");
 				scanf(" %d", &size);
+
+				while (size % 2 == 0 || size < 1) {
+					printf("\nThe face's size must be an odd and positive number,\n\
+					please try again:\n");
+					scanf(" %d", &size);
+				}
+
+				printf("%c", eyes);
+				for(int i = 0; i < size; i++)
+					printf(" ");
+				printf("%c\n", eyes);
+
+				for(int i = 0; i <= size; i += 2)
+					printf(" ");
+				printf("%c\n", nose);
+
+				printf("\\");
+				for(int i = 0; i < size; i++)
+					printf("%c", mouth);
+				printf("/\n");
+			break;
+		}
+
+			// Balanced Number
+			case 2:
+			{
+				int control;
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+				while(number < 1) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+				while(number > 0){
+					printf("%d\n", number);
+					control = number % 10;
+					number = number / 10;
+					printf("number: %d\ncontrol: %d\n", number, control);
+				}
+			break;
+			}
+			
+			// Generous Number
+			case 3:
+			{
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+				while(number < 1) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+
+				int sum=0;
+				for(int i = 1; i < number ; i++) {
+					if(number % i == 0) {
+						sum += i;
+					}
+				}
+				if(sum > number) {
+					printf("This number is generous!\n");
+				} else {
+					printf("This number does not share.\n");
+				}
+			break;
 			}
 
-			printf("%c", eyes);
-			for(int i = 0; i < size; i++)
-				printf(" ");
-			printf("%c\n", eyes);
-
-			for(int i = 0; i <= size; i += 2)
-				printf(" ");
-			printf("%c\n", nose);
-
-			printf("\\");
-			for(int i = 0; i < size; i++)
-				printf("%c", mouth);
-			printf("/\n");
-			break;
-			case 2:
-			(printf("2"));
-			break;
-			case 3:
-			(printf("3"));
-			break;
+			// Circle Of Joy
 			case 4:
 			(printf("4"));
 			break;
