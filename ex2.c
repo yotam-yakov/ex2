@@ -175,13 +175,18 @@ int main() {
 			{
 				int input, smile, cheer, max;
 				printf("Enter a smile and cheer number\n");
-				input = scanf(" smile: %d, cheer: %d", &smile, &cheer);
-				while( input != 2) {
-					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+
+				while(1) {
 					input = scanf(" smile: %d, cheer: %d", &smile, &cheer);
-					
+
+					if(input == 2) {
+						break;
+					} else {
+						printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+						scanf("%[^\n]", &input);
+					}
 				}
-				printf("smile - %d, cheer - %d\n", smile, cheer);
+
 				printf("Enter maximum number for the festival:\n");
 				scanf("%d", &max);
 				while(max < 1) {
@@ -204,6 +209,7 @@ int main() {
 						}
 					}
 				}
+
 				break;
 			}
 
