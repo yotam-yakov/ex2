@@ -62,8 +62,26 @@ int main() {
 					scanf("%d", &number);
 				}
 
-				int length=1;
+				int length=0;
 				for(int i=number; i > 0; i = i / 10, length++){}
+
+				int right = 0, left = 0;
+				for(int i = 1; i <= (length / 2); i++) {
+					right += number % 10;
+					number /= 10;
+				}
+
+				if(length % 2 == 1) {
+					number /= 10;
+				}
+
+				for(; number > 0; left += number % 10, number /= 10) {}
+
+				if(right == left) {
+					printf("This number is balanced and brings harmony!\n");
+				} else {
+					printf("This number isn't balanced and destroys harmony.\n");
+				}
 				
 			break;
 			}
@@ -155,10 +173,37 @@ int main() {
 			// Festival Of Laughter
 			case 6:
 			{
-				int smile, cheer;
+				int input, smile, cheer, max;
 				printf("Enter a smile and cheer number\n");
-				scanf(" %d %d", &smile, &cheer);
+				input = scanf(" smile: %d, cheer: %d", &smile, &cheer);
+				while( input != 2) {
+					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+					input = scanf(" smile: %d, cheer: %d", &smile, &cheer);
+					
+				}
 				printf("smile - %d, cheer - %d\n", smile, cheer);
+				printf("Enter maximum number for the festival:\n");
+				scanf("%d", &max);
+				while(max < 1) {
+					printf("Only positive maximum number is allowed, please try again:\n");
+					scanf("%d", &max);
+				}
+
+				for(int i = 1; i <= max; i++) {
+					if(i % smile == 0) {
+						if(i % cheer == 0) {
+							printf("Festival!\n");
+						} else {
+							printf("Smile!\n");
+						}
+					} else {
+						if(i % cheer == 0) {
+							printf("Cheer\n");
+						} else {
+							printf("%d\n", i);
+						}
+					}
+				}
 				break;
 			}
 
