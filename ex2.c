@@ -8,6 +8,7 @@ Assignment: ex2
 
 int main() {
 	int choice, number, exit=0;
+	
 	do {
 		printf("Choose an option:\n\
 		1. Happy Face\n\
@@ -18,6 +19,17 @@ int main() {
 		6. Festival Of Laughter\n\
 		7. Exit\n");
 		scanf("%d", &choice);
+
+		if(choice >= 2 && choice <= 5) {
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+				while(number < 1) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+
+		}
+
 		switch (choice){
 			// Happy Face
 			case 1:
@@ -49,19 +61,13 @@ int main() {
 				for(int i = 0; i < size; i++)
 					printf("%c", mouth);
 				printf("/\n");
+
 			break;
 		}
 
 			// Balanced Number
 			case 2:
 			{
-				printf("Enter a number:\n");
-				scanf("%d", &number);
-				while(number < 1) {
-					printf("Only positive number is allowed, please try again:\n");
-					scanf("%d", &number);
-				}
-
 				int length=0;
 				for(int i=number; i > 0; i = i / 10, length++){}
 
@@ -89,13 +95,6 @@ int main() {
 			// Generous Number
 			case 3:
 			{
-				printf("Enter a number:\n");
-				scanf("%d", &number);
-				while(number < 1) {
-					printf("Only positive number is allowed, please try again:\n");
-					scanf("%d", &number);
-				}
-
 				int sum=0;
 				for(int i = 1; i < number; i++) {
 					if(number % i == 0) {
@@ -107,19 +106,13 @@ int main() {
 				} else {
 					printf("This number does not share.\n");
 				}
+
 			break;
 			}
 
 			// Circle Of Joy
 			case 4:
 			{
-				printf("Enter a number:\n");
-				scanf("%d", &number);
-				while(number < 1) {
-					printf("Only positive number is allowed, please try again:\n");
-					scanf("%d", &number);
-				}
-
 				int prime=1;
 				for(int i=2; i < number; i++) {
 					if(number % i == 0) {
@@ -133,19 +126,13 @@ int main() {
 				} else {
 					printf("The circle remains incomplete.\n");
 				}
+
 				break;
 			}
 		
 			// Happy Numbers
 			case 5:
 			{
-				printf("Enter a number:\n");
-				scanf("%d", &number);
-				while(number < 1) {
-					printf("Only positive number is allowed, please try again:\n");
-					scanf("%d", &number);
-				}
-
 				int digit, temp;
 				printf("Between 1 and %d only these numbers bring happiness:\n", number);
 
@@ -167,6 +154,7 @@ int main() {
 					}
 				}
 				printf("\n");
+				
 				break;
 			}
 
@@ -216,58 +204,13 @@ int main() {
 			case 7:
 				exit = 1;
 			break;
+
 			default:
 			printf("This option is not available, please try again\n");
 		};
 	} while (!exit);
+
 	printf("Thank you for your journey through Numeria!\n");
 
-	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
-	/* Example:
-	* n = 3:
-	* 0   0
-	*   o
-	* \___/
-	*/
-    
-
-	// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
-	// and the sum of all digits to the right of the middle digit(s) are equal
-	/* Examples:
-	Balanced: 1533, 450810, 99
-	Not blanced: 1552, 34
-	Please notice: the number has to be bigger than 0.
-	*/
-	
-	// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
-	/* Examples:
-	Abudant: 12, 20, 24
-	Not Abudant: 3, 7, 10
-	Please notice: the number has to be bigger than 0.
-	*/
-
-	// Case 4: determine wether a number is a prime.
-	/* Examples:
-	This one brings joy: 3, 5, 11
-	This one does not bring joy: 15, 8, 99
-	Please notice: the number has to be bigger than 0.
-	*/
-    
-
-	// Happy numbers: Print all the happy numbers between 1 to the given number.
-	// Happy number is a number which eventually reaches 1 when replaced by the sum of the square of each digit
-	/* Examples:
-	Happy :) : 7, 10
-	Not Happy :( : 5, 9
-	Please notice: the number has to be bigger than 0.
-	*/
-
-	// Festival of Laughter: Prints all the numbers between 1 the given number:
-	// and replace with "Smile!" every number that divided by the given smile number
-	// and replace with "Cheer!" every number that divided by the given cheer number
-	// and replace with "Festival!" every number that divided by both of them
-	/* Example:
-	6, smile: 2, cheer: 3 : 1, Smile!, Cheer!, Smile!, 5, Festival!
-	*/
 	return 0;
 }
